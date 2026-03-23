@@ -46,7 +46,7 @@ const Navbar = () => {
               : "text-hero-foreground/70 hover:text-hero-foreground"
           }`}
         >
-          About
+          Aboutttt
         </a>
 
         <a
