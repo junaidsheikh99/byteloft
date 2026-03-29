@@ -10,7 +10,7 @@ const AboutSection = () => {
         transition={{ duration: 0.7 }}
         className="max-w-4xl mx-auto text-center"
       >
-        <p className="text-foreground/80 text-base md:text-lg leading-relaxed font-body">
+        <p className="text-foreground/80 text-base md:text-lg leading-relaxed ">
           We are an award-winning strategic design company that
           provides consultancy services across all areas. Our team consists
           of a super blend of thinkers, strategists, designers,

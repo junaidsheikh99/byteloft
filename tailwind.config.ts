@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         display: ['Plus Jakarta Sans', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
+        SpaceGrotesk: ['SpaceGrotesk-Regular', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
