@@ -46,21 +46,7 @@ const HeroSection = () => {
           />
 
           {/* Floating Button */}
-          <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 w-12 h-12 bg-green-accent rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="7" y1="17" x2="17" y2="7" />
-              <polyline points="7 7 17 7 17 17" />
-            </svg>
-          </div>
+         
         </div>
       </motion.div>
     </section>

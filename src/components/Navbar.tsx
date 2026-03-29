@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-/* 🔥 Reusable NavItem */
+/* Nav Item */
 const NavItem = ({ href, children, scrolled, isOpen }) => {
   const active = scrolled || isOpen;
 
@@ -18,7 +18,7 @@ const NavItem = ({ href, children, scrolled, isOpen }) => {
     >
       {children}
 
-      {/* Smooth underline */}
+      {/* Underline animation */}
       <motion.span
         variants={{
           rest: { width: 0 },
@@ -63,7 +63,7 @@ const Navbar = () => {
       {/* Logo */}
       <a
         href="/"
-        className={` font-bold text-xl tracking-tight transition-colors duration-300 ${
+        className={`font-bold text-xl tracking-tight transition-colors duration-300 ${
           active ? "text-black" : "text-white"
         }`}
       >
@@ -93,19 +93,17 @@ const Navbar = () => {
           Testimonials
         </NavItem>
 
-        {/* CTA */}
-        <motion.a
+        {/* ✅ CTA (UNCHANGED) */}
+        <a
           href="#contact"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
           className={`rounded-full px-6 py-2.5 text-sm font-medium transition-all duration-300 ${
             active
-              ? "bg-black text-white"
-              : "bg-white text-[#2596be]"
+              ? "bg-black text-white hover:bg-black/90"
+              : "bg-white text-black hover:bg-white/90"
           }`}
         >
           Let's talk
-        </motion.a>
+        </a>
       </div>
 
       {/* Mobile Toggle */}
@@ -118,33 +116,36 @@ const Navbar = () => {
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
-      {/* Mobile Menu */}
+      {/* 🔥 Mobile Dropdown Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed top-[60px] right-0 w-full h-[calc(100vh-60px)] bg-white flex flex-col items-center pt-24 gap-8 md:hidden shadow-lg z-40"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="absolute top-full left-0 right-0 
+            bg-white backdrop-blur-md 
+            flex flex-col items-start px-6 font-bold py-10 gap-6 
+            md:hidden shadow-lg border-t z-40"
           >
-            <a onClick={handleClose} href="#about" className="text-xl text-gray-800">
+            <a onClick={handleClose} href="#about" className="text-lg text-gray-800">
               About
             </a>
 
-            <a onClick={handleClose} href="#services" className="text-xl text-gray-800">
+            <a onClick={handleClose} href="#services" className="text-lg text-gray-800">
               Services
             </a>
 
-            <a onClick={handleClose} href="#work" className="text-xl text-gray-800">
+            <a onClick={handleClose} href="#work" className="text-lg text-gray-800">
               Work
             </a>
 
-            <a onClick={handleClose} href="#whyus" className="text-xl text-gray-800">
+            <a onClick={handleClose} href="#whyus" className="text-lg text-gray-800">
               WhyUs
             </a>
 
-            <a onClick={handleClose} href="#testimonials" className="text-xl text-gray-800">
+            <a onClick={handleClose} href="#testimonials" className="text-lg text-gray-800">
               Testimonials
             </a>
 
@@ -155,7 +156,6 @@ const Navbar = () => {
             >
               Let's talk
             </a>
-            
           </motion.div>
         )}
       </AnimatePresence>
