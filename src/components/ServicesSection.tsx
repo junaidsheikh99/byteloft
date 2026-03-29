@@ -1,15 +1,12 @@
 import { motion } from "framer-motion";
 
 const services = [
-  "Web Design",
   "Web Development",
-  "App Design",
-  "Branding Design",
-  "3D Modeling",
+  "App Development",
   "Digital Marketing",
-  "Animation",
-  "Web App Design & Development",
-  "UI/UX",
+  "Home Designing and Planing",
+  "Building Construction",
+  
 ];
 
 const ServicesSection = () => {

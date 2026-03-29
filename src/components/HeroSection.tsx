@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-office.jpg";
 
+
 const HeroSection = () => {
   return (
     <section
@@ -10,7 +11,7 @@ const HeroSection = () => {
         flex flex-col justify-center 
         gap-5
         relative overflow-hidden 
-        pt-12 pb-16 px-6 md:px-12 lg:px-20
+        pt-12 lg:pt-24 pb-16 px-6 md:px-12 lg:px-20
         rounded-b-[60px] md:rounded-b-[100px] lg:rounded-b-[140px]
         shadow-[0_20px_60px_rgba(0,0,0,0.1)]
       "

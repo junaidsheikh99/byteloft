@@ -29,7 +29,7 @@ const TestimonialsSection = () => {
         transition={{ duration: 0.6 }}
         className="text-center mb-14"
       >
-        <h2 className="font-display font-bold text-foreground text-3xl md:text-4xl">
+        <h2 className=" font-bold text-foreground text-3xl md:text-4xl">
           What our Clients are
           <br />
           saying about us!
@@ -55,7 +55,7 @@ const TestimonialsSection = () => {
               "{testimonial.text}"
             </p>
             <div>
-              <p className="font-display font-semibold text-foreground text-sm">{testimonial.author}</p>
+              <p className=" font-semibold text-foreground text-sm">{testimonial.author}</p>
               <p className="text-text-secondary text-xs">{testimonial.role}</p>
             </div>
           </motion.div>
