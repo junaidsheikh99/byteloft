@@ -65,9 +65,6 @@ const Index = () => {
         <ClientLogos />
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
-        <YouTubeSection />
-      </Suspense>
-      <Suspense fallback={<SectionFallback />}>
         <CTASection />
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
