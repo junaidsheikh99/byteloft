@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import Loader from "@/components/ui/loader";
 import { useEffect, Suspense, lazy } from "react";
 import Lenis from "lenis";
+import ContactForm from  "@/components/contact";
 
 // Lazy load components for better performance
 const AboutSection = lazy(() => import("@/components/AboutSection"));
@@ -13,6 +14,7 @@ const ClientLogos = lazy(() => import("@/components/ClientLogos"));
 const YouTubeSection = lazy(() => import("@/components/YouTubeSection"));
 const CTASection = lazy(() => import("@/components/CTASection"));
 const Footer = lazy(() => import("@/components/Footer"));
+
 
 // Fallback component for lazy loading
 const SectionFallback = () => (
@@ -61,12 +63,11 @@ const Index = () => {
       <Suspense fallback={<SectionFallback />}>
         <TestimonialsSection />
       </Suspense>
-      <Suspense fallback={<SectionFallback />}>
-        <ClientLogos />
-      </Suspense>
+      
       <Suspense fallback={<SectionFallback />}>
         <CTASection />
       </Suspense>
+      <ContactForm/>
       <Suspense fallback={<SectionFallback />}>
         <Footer />
       </Suspense>

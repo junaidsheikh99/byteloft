@@ -1,18 +1,70 @@
-const Footer = () => {
+import { Phone, Mail, MapPin } from "lucide-react";
+
+export default function Footer() {
   return (
-    <footer className="bg-hero text-hero-foreground py-10 px-6 md:px-12 lg:px-20">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <span className="font-display font-bold text-xl tracking-tight">ByteLoft</span>
-        <div className="flex items-center gap-8">
-          <a href="#about" className="text-hero-foreground/60 hover:text-hero-foreground text-sm transition-colors">About</a>
-          <a href="#services" className="text-hero-foreground/60 hover:text-hero-foreground text-sm transition-colors">Services</a>
-          <a href="#work" className="text-hero-foreground/60 hover:text-hero-foreground text-sm transition-colors">Work</a>
-          <a href="#contact" className="text-hero-foreground/60 hover:text-hero-foreground text-sm transition-colors">Contact</a>
+    <footer className="bg-black text-white px-6 md:px-16 py-12">
+      
+      {/* Top Border */}
+      <div className="border-t border-gray-800 mb-10"></div>
+
+      <div className="grid md:grid-cols-5 gap-10">
+
+        {/* Reach Us */}
+        <div>
+          <h3 className="text-lg font-semibold mb-6">Reach us</h3>
+
+          <div className="space-y-4 text-sm text-gray-300">
+            <div className="flex items-center gap-3">
+              <Phone size={16} />
+              <span>+91 7887424274</span>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <Mail size={16} />
+              <span>byteloftpl@gmail.com</span>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <MapPin size={16} />
+              <span>
+                Sati Chowk, Warud <br />
+                Maharashtra, India
+              </span>
+            </div>
+          </div>
         </div>
-        <p className="text-hero-foreground/40 text-xs">© 2026 ByteLoft Pvt. Ltd. All rights reserved.</p>
+
+        {/* Company */}
+        <div>
+          <h3 className="text-lg font-semibold mb-6">Company</h3>
+          <ul className="space-y-3 text-sm text-gray-300">
+            <li className="hover:text-white cursor-pointer">About</li>
+            <li className="hover:text-white cursor-pointer">Contact</li>
+            <li className="hover:text-white cursor-pointer">Blogs</li>
+          </ul>
+        </div>
+
+        {/* Legal */}
+        <div>
+          <h3 className="text-lg font-semibold mb-6">Legal</h3>
+          <ul className="space-y-3 text-sm text-gray-300">
+            <li className="hover:text-white cursor-pointer">Privacy Policy</li>
+            <li className="hover:text-white cursor-pointer">Terms & Services</li>
+            <li className="hover:text-white cursor-pointer">Terms of Use</li>
+            <li className="hover:text-white cursor-pointer">Refund Policy</li>
+          </ul>
+        </div>
+
+        {/* Quick Links */}
+       
+        
       </div>
+
+      {/* Bottom */}
+      <div className="mt-10 border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} ByteLoft Pvt. Ltd. All rights reserved.
+      </div>
+
     </footer>
   );
-};
-
-export default Footer;
+}
