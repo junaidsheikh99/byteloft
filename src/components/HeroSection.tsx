@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroImage from "@/assets/hero-office.jpg";
+import heroImage from "@/assets/hero-office.webp";
 
 const text = "Building Technology & Infrastructure for the Future";
 
