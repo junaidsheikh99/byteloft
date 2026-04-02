@@ -73,7 +73,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6">
+    <div className="py-20 flex items-center justify-center p-6">
       <div className="w-full max-w-6xl bg-white rounded-2xl overflow-hidden shadow-xl grid md:grid-cols-2">
         
         {/* LEFT */}
