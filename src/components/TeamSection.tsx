@@ -124,7 +124,7 @@ const TeamSection = () => {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto  md:space-y-16">
+      <div className="max-w-6xl mx-auto space-y-16">
 
         {team.map((member, i) => (
           <div
@@ -133,7 +133,7 @@ const TeamSection = () => {
               member.align === "left"
                 ? "md:flex-row"
                 : "md:flex-row-reverse"
-            } md:items-center gap-0 md:gap-12`}
+            } md:items-center gap-0`}
           >
             {/* IMAGE */}
             <div className="team-image relative w-full md:w-1/2 group">
