@@ -124,7 +124,7 @@ const TeamSection = () => {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto space-y-16">
+      <div className="max-w-6xl mx-auto space-y-32">
 
         {team.map((member, i) => (
           <div
