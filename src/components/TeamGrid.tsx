@@ -52,11 +52,10 @@ const TeamGrid = () => {
           and succeed in the digital world.
         </p>
 
-       
       </div>
 
-      {/* TEAM GRID */}
-      <div className="flex flex-wrap justify-center gap-12 max-w-5xl mx-auto">
+      {/* 🔥 GRID (FIXED) */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 max-w-5xl mx-auto">
         {teamMembers.map((member, index) => (
           <motion.div
             key={index}
@@ -64,9 +63,9 @@ const TeamGrid = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="text-center w-[160px]"
+            className="text-center"
           >
-            {/* IMAGE (🔥 no hover effects) */}
+            {/* IMAGE */}
             <img
               src={member.image}
               alt={member.name}
