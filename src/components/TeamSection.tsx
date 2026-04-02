@@ -21,7 +21,7 @@ Holding a background in Civil Engineering, he possesses in-depth knowledge of bu
     name: "Junaid Sheikh",
     role: "Co-Founder & CEO",
     desc: `A highly skilled technology professional with over 3+ years of experience in the IT sector, specializing in project execution and digital transformation initiatives. He has previously served as a Project Manager for government digitization projects, successfully leading and delivering large-scale document digitization and process optimization assignments.
-He holds a Master’s degree in Computer Engineering and possesses strong expertise in software development and Artificial Intelligence. With a deep understanding of both technical architecture and project management, he plays a key role in driving innovation, ensuring efficient execution, and delivering scalable technology solutions.`,
+He holds a Master’s degree in Computer Engineering and possesses strong expertise in software development and Artificial Intelligence.`,
     image: founder2,
     align: "right",
   },
@@ -34,7 +34,7 @@ const TeamSection = () => {
     const ctx = gsap.context(() => {
       const items = gsap.utils.toArray<HTMLElement>(".team-item");
 
-      // 🔥 Heading animation
+      // Heading animation
       gsap.fromTo(
         ".team-heading",
         { opacity: 0, y: 40 },
@@ -54,6 +54,7 @@ const TeamSection = () => {
         const image = item.querySelector(".team-image");
         const text = item.querySelector(".team-text");
 
+        // Fade + slide
         gsap.fromTo(
           item,
           { opacity: 0, y: 80 },
@@ -69,6 +70,7 @@ const TeamSection = () => {
           }
         );
 
+        // Parallax image
         if (image) {
           gsap.fromTo(
             image,
@@ -85,6 +87,7 @@ const TeamSection = () => {
           );
         }
 
+        // Text reveal
         if (text) {
           gsap.fromTo(
             text,
@@ -108,12 +111,12 @@ const TeamSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white py-16 px-6 md:px-12 lg:px-20">
-      
+    <section
+      ref={sectionRef}
+      className="bg-white py-16 px-6 md:px-12 lg:px-20"
+    >
       {/* 🔥 HEADING */}
-      <div className="team-heading max-w-3xl mx-auto text-center mb-24">
-        
-
+      <div className="team-heading max-w-3xl mx-auto text-center mb-20">
         <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
           Our Leadership Team
         </h2>
@@ -124,8 +127,8 @@ const TeamSection = () => {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto space-y-32">
-
+      {/* TEAM LIST */}
+      <div className="max-w-5xl mx-auto space-y-24">
         {team.map((member, i) => (
           <div
             key={i}
@@ -133,27 +136,27 @@ const TeamSection = () => {
               member.align === "left"
                 ? "md:flex-row"
                 : "md:flex-row-reverse"
-            } md:items-center gap-2`}
+            } items-center gap-6 md:gap-10`}
           >
             {/* IMAGE */}
-            <div className="team-image relative w-full md:w-1/2 group">
+            <div className="team-image w-full md:w-1/2 group">
               <div className="overflow-hidden rounded-2xl flex justify-center">
                 <img
                   src={member.image}
                   alt={member.name}
                   loading="lazy"
-                  className=" h-[300px] md:h-[400] w-[200px] rounded-2xl   object-contain transition-transform duration-500 group-hover:scale-105"
+                  className="h-[280px] md:h-[400px] w-auto object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
             </div>
 
             {/* TEXT */}
-            <div className="team-text w-full md:w-1/2 mt-6 md:mt-0">
-              <p className="text-sm uppercase  tracking-widest text-gray-800 mb-2">
+            <div className="team-text w-full md:w-1/2">
+              <p className="text-sm uppercase tracking-widest text-gray-800 mb-2">
                 {member.role}
               </p>
 
-              <h2 className="text-3xl  md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 {member.name}
               </h2>
 
@@ -164,7 +167,6 @@ const TeamSection = () => {
               {/* SOCIAL ICONS */}
               <div className="flex items-center gap-5">
                 <div className="flex gap-4 text-gray-500">
-
                   <a href="#" className="hover:text-blue-600 transition">
                     <Linkedin size={18} />
                   </a>
@@ -176,7 +178,6 @@ const TeamSection = () => {
                   <a href="#" className="hover:text-sky-500 transition">
                     <Twitter size={18} />
                   </a>
-
                 </div>
 
                 <div className="flex-1 h-[1px] bg-gray-300" />
@@ -184,7 +185,6 @@ const TeamSection = () => {
             </div>
           </div>
         ))}
-
       </div>
     </section>
   );
