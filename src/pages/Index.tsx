@@ -4,6 +4,7 @@ import Loader from "@/components/ui/loader";
 import { useEffect, Suspense, lazy } from "react";
 import Lenis from "lenis";
 import ContactForm from  "@/components/contact";
+import TeamSection from "@/components/TeamSection";
 
 // Lazy load components for better performance
 const AboutSection = lazy(() => import("@/components/AboutSection"));
@@ -53,6 +54,9 @@ const Index = () => {
       <HeroSection />
       <Suspense fallback={<SectionFallback />}>
         <AboutSection />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+      <TeamSection/>
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
         <ServicesSection />
