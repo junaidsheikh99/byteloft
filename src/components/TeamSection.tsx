@@ -167,15 +167,15 @@ const TeamSection = () => {
               {/* SOCIAL ICONS */}
               <div className="flex items-center gap-5">
                 <div className="flex gap-4 text-gray-500">
-                  <a href="#" className="hover:text-blue-600 transition">
+                  <a href="https://Linkedin.com/in/junaidsheikh99" target="_blank" className="hover:text-blue-600 transition">
                     <Linkedin size={18} />
                   </a>
 
-                  <a href="#" className="hover:text-pink-500 transition">
+                  <a href="https://Instagram.com/junaidsheikh99" target="_blank" className="hover:text-pink-500 transition">
                     <Instagram size={18} />
                   </a>
 
-                  <a href="#" className="hover:text-sky-500 transition">
+                  <a href="https://X.com/junaidsheikh99_" target="_blank" className="hover:text-sky-500 transition">
                     <Twitter size={18} />
                   </a>
                 </div>

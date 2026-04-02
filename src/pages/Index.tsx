@@ -5,6 +5,7 @@ import { useEffect, Suspense, lazy } from "react";
 import Lenis from "lenis";
 import ContactForm from  "@/components/contact";
 import TeamSection from "@/components/TeamSection";
+import TeamGrid from "@/components/TeamGrid";
 
 // Lazy load components for better performance
 const AboutSection = lazy(() => import("@/components/AboutSection"));
@@ -68,6 +69,11 @@ const Index = () => {
        <Suspense fallback={<SectionFallback />}>
       <TeamSection/>
       </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+      <TeamGrid/>
+      </Suspense>
+
+
       <Suspense fallback={<SectionFallback />}>
         <CTASection />
       </Suspense>
