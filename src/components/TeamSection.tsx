@@ -133,7 +133,7 @@ const TeamSection = () => {
               member.align === "left"
                 ? "md:flex-row"
                 : "md:flex-row-reverse"
-            } md:items-center gap-0`}
+            } md:items-center gap-2`}
           >
             {/* IMAGE */}
             <div className="team-image relative w-full md:w-1/2 group">
