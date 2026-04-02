@@ -3,7 +3,7 @@ import { memo, useState, useRef, useEffect } from "react";
 
 import web from "@/assets/web.png";
 import digital from "@/assets/digital.png";
-import construction from "@/assets/construction.webp";
+import construction from "@/assets/construction.jpg";
 import appdev from "@/assets/appdev.jpeg";
 import planning from "@/assets/planning.webp";
 
