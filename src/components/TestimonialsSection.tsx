@@ -3,19 +3,19 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    text: "Working with Teamollo was an absolute pleasure. They transformed our brand identity into something truly remarkable and memorable.",
-    author: "Sarah Johnson",
-    role: "CEO, TechVentures",
+    text: "Working with Byteloft was an absolute pleasure. They transformed our brand identity into something truly remarkable and memorable.",
+    author: "Datta Darve",
+    role: "Founder, Shivkanta Logistics",
   },
   {
-    text: "The attention to detail and creative thinking that Teamollo brings to every project is unmatched. Highly recommended for any design work.",
-    author: "Michael Chen",
-    role: "Founder, StartupLab",
+    text: "The attention to detail and creative thinking that Byteloft brings to every project is unmatched. Highly recommended for any design work.",
+    author: "Saurabh Jadhav",
+    role: "Founder, S.j. studios ",
   },
   {
-    text: "Teamollo delivered beyond our expectations. Their strategic approach to design helped us increase conversions by 40%.",
-    author: "Emily Rodriguez",
-    role: "CMO, GrowthCo",
+    text: "Byteloft delivered beyond our expectations. Their strategic approach to design helped us increase conversions by 40%.",
+    author: "Rohit Verma",
+    role: "Director, NextGen Software",
   },
 ];
 

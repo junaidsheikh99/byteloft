@@ -11,43 +11,48 @@ const AboutSection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const letters = textRef.current.querySelectorAll("span");
+      // select ONLY letters (nested spans)
+      const letters = textRef.current.querySelectorAll("span span");
 
       gsap.fromTo(
         letters,
         { color: "rgba(0,0,0,0.2)" },
         {
           color: "#111",
-          stagger: 0.02, // 🔥 faster reveal
+          stagger: 0.015,
           ease: "none",
           scrollTrigger: {
             trigger: textRef.current,
-            start: "top 75%",   // start when enters screen
-            end: "top 35%",     // finish early (~70% viewport)
-            scrub: 0.5          // smooth premium feel
-          }
+            start: "top 80%",
+            end: "top 40%",
+            scrub: 0.5,
+          },
         }
       );
     }, textRef);
 
-    return () => ctx.revert(); // 🔥 cleanup (important)
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section id="about" className="py-28 px-6">
+    <section id="about" className="py-20 px-4 sm:px-6">
       
-      <h1 className="text-center pb-4 text-text-secondary text-sm uppercase tracking-widest">
+      <h1 className="text-center pb-4 text-text-secondary text-xs sm:text-sm uppercase tracking-widest">
         ABOUT US
       </h1>
 
       <div className="max-w-4xl mx-auto text-center">
         <p
           ref={textRef}
-          className="text-lg md:text-lg leading-relaxed flex flex-wrap justify-center"
+          className="text-base sm:text-lg leading-relaxed flex flex-wrap justify-between md:justify-center break-words"
         >
-          {text.split("").map((letter, index) => (
-            <span key={index} className="whitespace-pre">
-              {letter}
+          {text.split(" ").map((word, index) => (
+            <span key={index} className="inline-block mr-1">
+              {word.split("").map((letter, i) => (
+                <span key={i} className="inline-block">
+                  {letter}
+                </span>
+              ))}
             </span>
           ))}
         </p>
