@@ -41,9 +41,7 @@ const TestimonialsSection = () => {
           <br />
           saying about us
         </h2>
-        <p className="text-gray-400 mt-4 text-sm">
-          Real feedback from real clients
-        </p>
+       
       </motion.div>
 
       {/* Cards */}
