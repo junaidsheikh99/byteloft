@@ -26,7 +26,6 @@ export default function ContactForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // validation
     if (!formData.email || !formData.message) {
       alert("Email and message are required!");
       return;
@@ -36,9 +35,10 @@ export default function ContactForm() {
 
     emailjs
       .send(
-        "service_q7phwzb",        // your service ID
-        "template_geovt9p",       // your template ID
+        "service_q7phwzb", // ✅ your service ID
+        "template_geovt9p", // ✅ your template ID
         {
+          to_email: "byteloftpl@gmail.com", // 🔥 IMPORTANT FIX
           firstName: formData.firstName,
           lastName: formData.lastName,
           email: formData.email,
@@ -46,14 +46,13 @@ export default function ContactForm() {
           subject: formData.subject || "General Inquiry",
           message: formData.message,
         },
-        "Bfn6iNbAtTjlKaT3j"       // your public key
+        "Bfn6iNbAtTjlKaT3j" // ✅ your public key
       )
       .then((response) => {
-        console.log("SUCCESS!", response.status, response.text);
+        console.log("SUCCESS!", response);
 
         setSuccess("Message sent successfully 🚀");
 
-        // reset form
         setFormData({
           firstName: "",
           lastName: "",
@@ -167,7 +166,7 @@ export default function ContactForm() {
               rows="4"
             />
 
-            {/* Success Message */}
+            {/* Success */}
             {success && (
               <p className="text-green-600 text-sm">{success}</p>
             )}
