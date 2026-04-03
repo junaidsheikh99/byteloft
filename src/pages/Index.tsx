@@ -6,6 +6,8 @@ import Lenis from "lenis";
 import ContactForm from  "@/components/contact";
 import TeamSection from "@/components/TeamSection";
 import TeamGrid from "@/components/TeamGrid";
+import StatsSection from "@/components/state";
+
 
 // Lazy load components for better performance
 const AboutSection = lazy(() => import("@/components/AboutSection"));
@@ -55,6 +57,9 @@ const Index = () => {
       <HeroSection />
       <Suspense fallback={<SectionFallback />}>
         <AboutSection />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+      <StatsSection />
       </Suspense>
      
       <Suspense fallback={<SectionFallback />}>

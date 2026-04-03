@@ -175,7 +175,7 @@ export default function ContactForm() {
               onChange={handleChange}
               placeholder="Write your message..."
               className="w-full border-b border-gray-300 py-2 outline-none"
-              rows="4"
+              rows={4}
             />
 
             {/* Success Message */}
@@ -184,7 +184,7 @@ export default function ContactForm() {
             )}
 
             {/* Button */}
-            <div className="flex justify-end">
+            <div className="flex justify-center md:justify-end">
               <button
                 type="submit"
                 disabled={loading}
