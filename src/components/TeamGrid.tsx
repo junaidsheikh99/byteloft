@@ -3,32 +3,37 @@ import { Linkedin, Instagram, Twitter } from "lucide-react";
 
 import founder1 from "@/assets/founder1.jpeg";
 import founder2 from "@/assets/founder2.jpeg";
+import naved from "@/assets/naved.jpeg";
+import cfo from '@/assets/cfo.jpeg';
+import nipun from '@/assets/nipun.jpeg';
+import aman from '@/assets/aman.jpeg';
+import ananya from '@/assets/ananya.jpeg'
 
 const teamMembers = [
   {
-    name: "Vicky Patel",
-    role: "Co-Founder & Director",
-    image: founder1,
+    name: "Sheikh Naved",
+    role: "CTO",
+    image: naved,
   },
   {
-    name: "Junaid Sheikh",
-    role: "Co-Founder & CEO",
-    image: founder2,
+    name: "Suyog Bisandre",
+    role: "CFO",
+    image: cfo,
   },
   {
-    name: "Team Member",
+    name: "Nipun Harle",
+    role: "Digital Marketing Manager",
+    image: nipun,
+  },
+  {
+    name: "Aman Sharma",
     role: "Developer",
-    image: founder1,
+    image: aman,
   },
   {
-    name: "Team Member",
-    role: "Designer",
-    image: founder2,
-  },
-  {
-    name: "Team Member",
-    role: "Marketing",
-    image: founder1,
+    name: "Ananya Nair",
+    role: "UI/UX Designer",
+    image: ananya,
   },
 ];
 
