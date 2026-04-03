@@ -36,7 +36,7 @@ export default function ContactForm() {
 
     emailjs
       .send(
-        "service_517am5p",        // your service ID
+        "service_q7phwzb",        // your service ID
         "template_geovt9p",       // your template ID
         {
           firstName: formData.firstName,
