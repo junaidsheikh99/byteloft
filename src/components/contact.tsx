@@ -24,51 +24,60 @@ export default function ContactForm() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!formData.email || !formData.message) {
-      alert("Email and message are required!");
-      return;
-    }
+  if (!formData.email || !formData.message) {
+    alert("Email and message are required!");
+    return;
+  }
 
-    setLoading(true);
+  setLoading(true);
 
-    emailjs
-      .send(
-        "service_q7phwzb", // ✅ your service ID
-        "template_geovt9p", // ✅ your template ID
-        {
-          to_email: "byteloftpl@gmail.com", // 🔥 IMPORTANT FIX
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          email: formData.email,
-          phone: formData.phone,
-          subject: formData.subject || "General Inquiry",
-          message: formData.message,
-        },
-        "Bfn6iNbAtTjlKaT3j" // ✅ your public key
-      )
-      .then((response) => {
-        console.log("SUCCESS!", response);
-
-        setSuccess("Message sent successfully 🚀");
-
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          subject: "",
-          message: "",
-        });
-      })
-      .catch((error) => {
-        console.error("FAILED...", error);
-        alert("Failed to send message. Check console.");
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+  // 1️⃣ Send to YOU (Admin)
+  emailjs.send(
+    "service_q7phwzb",
+    "template_geovt9p", // 👈 your admin template ID
+    {
+      to_email: "byteloftpl@gmail.com",
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      phone: formData.phone,
+      subject: formData.subject || "General Inquiry",
+      message: formData.message,
+    },
+    "Bfn6iNbAtTjlKaT3j"
+  )
+  .then(() => {
+    // 2️⃣ Send Auto Reply to USER
+    return emailjs.send(
+      "service_q7phwzb",
+      "template_6skk4g8", // 👈 your auto-reply template ID
+      {
+        firstName: formData.firstName,
+        email: formData.email,
+        subject: formData.subject,
+      },
+      "Bfn6iNbAtTjlKaT3j"
+    );
+  })
+  .then(() => {
+    setSuccess("Message sent successfully 🚀");
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
+    });
+  })
+  .catch((error) => {
+    console.error(error);
+    alert("Failed to send message");
+  })
+  .finally(() => setLoading(false));
+};
   };
 
   return (
