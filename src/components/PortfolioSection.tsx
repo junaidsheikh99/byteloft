@@ -53,7 +53,39 @@ const projects: Project[] = [
   },
 ];
 
-/* 🔥 Lazy Image Component */
+/* 🔥 MAGNETIC BUTTON */
+const MagneticButton = ({ children }: { children: React.ReactNode }) => {
+  const ref = useRef<HTMLButtonElement | null>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = ref.current?.getBoundingClientRect();
+    if (!rect) return;
+
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    ref.current!.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+  };
+
+  const handleMouseLeave = () => {
+    if (ref.current) {
+      ref.current.style.transform = "translate(0px, 0px)";
+    }
+  };
+
+  return (
+    <button
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="mt-6 px-5 py-2.5 text-sm rounded-full border border-[#2596be]/40 text-[#2596be] hover:bg-[#2596be] hover:text-white transition duration-300 will-change-transform"
+    >
+      {children}
+    </button>
+  );
+};
+
+/* 🔥 Lazy Image */
 const LazyImage = ({ src, alt }: { src: string; alt: string }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
@@ -71,14 +103,13 @@ const LazyImage = ({ src, alt }: { src: string; alt: string }) => {
     );
 
     if (containerRef.current) observer.observe(containerRef.current);
-
     return () => observer.disconnect();
   }, []);
 
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[200px] md:h-[360px] overflow-hidden rounded-2xl"
+      className="relative w-full h-[200px] md:h-[360px] overflow-hidden rounded-2xl group"
     >
       {/* Blur placeholder */}
       <div
@@ -87,36 +118,30 @@ const LazyImage = ({ src, alt }: { src: string; alt: string }) => {
         }`}
       />
 
-      {/* Image loads only when in view */}
       {isInView && (
         <img
           src={src}
           alt={alt}
           loading="lazy"
-          decoding="async"
           onLoad={() => setIsLoaded(true)}
-          className={`w-full h-full object-cover rounded-2xl transition-opacity duration-500 ${
-            isLoaded ? "opacity-100" : "opacity-0"
-          }`}
+          className={`w-full h-full object-cover rounded-2xl transition duration-500 ${
+            isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-105"
+          } group-hover:scale-110`}
         />
       )}
     </div>
   );
 };
 
-/* 🔥 Props type */
-type ProjectCardProps = {
-  project: Project;
-};
-
-/* 🔥 Optimized Card */
-const ProjectCard = memo(({ project }: ProjectCardProps) => {
+/* 🔥 Project Card */
+const ProjectCard = memo(({ project }: { project: Project }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -6 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
+      transition={{ duration: 0.5 }}
       className={`flex flex-col ${
         project.align === "right"
           ? "md:flex-row"
@@ -124,7 +149,7 @@ const ProjectCard = memo(({ project }: ProjectCardProps) => {
       } gap-6 md:gap-10 items-center`}
     >
       {/* IMAGE */}
-      <div className="w-full md:w-3/5">
+      <div className="w-full md:w-[50%]">
         <LazyImage src={project.image} alt={project.title} />
       </div>
 
@@ -138,19 +163,8 @@ const ProjectCard = memo(({ project }: ProjectCardProps) => {
           {project.description}
         </p>
 
-        <div className="mt-4 w-8 h-8 rounded-full bg-[#2596be] flex items-center justify-center cursor-pointer hover:scale-110 hover:bg-[#1e7ea1] transition-transform duration-200">
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="2.5"
-          >
-            <line x1="7" y1="17" x2="17" y2="7" />
-            <polyline points="7 7 17 7 17 17" />
-          </svg>
-        </div>
+        {/* 🔥 Magnetic Button */}
+        <MagneticButton>Learn More →</MagneticButton>
       </div>
     </motion.div>
   );

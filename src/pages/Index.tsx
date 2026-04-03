@@ -7,6 +7,7 @@ import ContactForm from  "@/components/contact";
 import TeamSection from "@/components/TeamSection";
 import TeamGrid from "@/components/TeamGrid";
 import StatsSection from "@/components/state";
+import WhyChooseUs from "@/components/WhyChoseus";
 
 
 // Lazy load components for better performance
@@ -68,6 +69,10 @@ const Index = () => {
       <Suspense fallback={<SectionFallback />}>
         <PortfolioSection />
       </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+      <WhyChooseUs/>
+      </Suspense> 
+
       <Suspense fallback={<SectionFallback />}>
         <TestimonialsSection />
       </Suspense>
