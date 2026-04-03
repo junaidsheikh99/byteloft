@@ -24,60 +24,63 @@ export default function ContactForm() {
   };
 
   const handleSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (!formData.email || !formData.message) {
-    alert("Email and message are required!");
-    return;
-  }
+    if (!formData.email || !formData.message) {
+      alert("Email and message are required!");
+      return;
+    }
 
-  setLoading(true);
+    setLoading(true);
 
-  // 1️⃣ Send to YOU (Admin)
-  emailjs.send(
-    "service_q7phwzb",
-    "template_geovt9p", // 👈 your admin template ID
-    {
-      to_email: "byteloftpl@gmail.com",
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-      phone: formData.phone,
-      subject: formData.subject || "General Inquiry",
-      message: formData.message,
-    },
-    "Bfn6iNbAtTjlKaT3j"
-  )
-  .then(() => {
-    // 2️⃣ Send Auto Reply to USER
-    return emailjs.send(
-      "service_q7phwzb",
-      "template_6skk4g8", // 👈 your auto-reply template ID
-      {
-        firstName: formData.firstName,
-        email: formData.email,
-        subject: formData.subject,
-      },
-      "Bfn6iNbAtTjlKaT3j"
-    );
-  })
-  .then(() => {
-    setSuccess("Message sent successfully 🚀");
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
-  })
-  .catch((error) => {
-    console.error(error);
-    alert("Failed to send message");
-  })
-  .finally(() => setLoading(false));
-};
+    // 🔥 1. SEND EMAIL TO YOU (ADMIN)
+    emailjs
+      .send(
+        "service_q7phwzb",
+        "template_geovt9p", // 👈 replace with your admin template ID
+        {
+          to_email: "byteloftpl@gmail.com",
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject || "General Inquiry",
+          message: formData.message,
+        },
+        "Bfn6iNbAtTjlKaT3j"
+      )
+      .then(() => {
+        // 🔥 2. SEND AUTO REPLY TO USER
+        return emailjs.send(
+          "service_q7phwzb",
+          "template_6skk4g8", // 👈 replace with your user template ID
+          {
+            firstName: formData.firstName,
+            email: formData.email,
+            subject: formData.subject || "General Inquiry",
+          },
+          "Bfn6iNbAtTjlKaT3j"
+        );
+      })
+      .then(() => {
+        setSuccess("Message sent successfully 🚀");
+
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        console.error("ERROR:", error);
+        alert("Failed to send message");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -175,7 +178,7 @@ export default function ContactForm() {
               rows="4"
             />
 
-            {/* Success */}
+            {/* Success Message */}
             {success && (
               <p className="text-green-600 text-sm">{success}</p>
             )}
