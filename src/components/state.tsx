@@ -4,13 +4,13 @@ import { Cpu, Users, Building2, Lightbulb } from "lucide-react";
 const stats = [
   {
     icon: Cpu,
-    value: 50,
+    value: 57,
     suffix: "+",
     label: "Projects Delivered",
   },
   {
     icon: Users,
-    value: 30,
+    value: 12,
     suffix: "+",
     label: "Expert Team Members",
   },
@@ -45,7 +45,7 @@ export default function StatsSection() {
   }, []);
 
   return (
-    <section ref={ref} className="py-16">
+    <section ref={ref} className="pb-24 pt-12">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading (matches your style) */}
